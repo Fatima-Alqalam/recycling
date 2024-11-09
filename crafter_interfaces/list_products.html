@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin | Recycling</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="website/panel/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="website/panel/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="website/panel/css/style.css" rel="stylesheet">
+    <link href="website/panel/css/custom.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <style>
+        .form-control-feedback{
+            color: #f01414;
+        }
+    </style>
+</head>
+<body>
+<div class="container-xxl position-relative bg-white d-flex p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->        <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <a href="crafter/home" class="navbar-brand mx-4 mb-3">
+                <img src="website/customer/images/logo.png" class="logo logooo" alt="">
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                    <i class="fa text-white fa-user-circle fa-2x"></i>
+                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0 text-white"> Welcome : Carfter One</h6>
+                    <span class="text-white">Crafter</span>
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <a href="crafter/home" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="crafter/account/update-data" class="nav-item nav-link "><i class="fa fa-user me-2"></i>Profile</a>
+                <a href="crafter/account/password" class="nav-item nav-link "><i class="fa fa-lock me-2"></i>Change Password</a>
+                <a href="crafter/products" class="nav-item nav-link active"><i class="fa fa-image me-2"></i>Products</a>
+                <a href="crafter/orders" class="nav-item nav-link "><i class="fa fa-shopping-cart me-2"></i>Orders</a>
+
+            </div>
+        </nav>
+    </div>
+    <!-- Sidebar End -->
+    <!-- Content Start -->
+    <div class="content">
+        <!-- Navbar Start -->
+        <nav class="navbar cusNavTop navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <a href="#" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+            </a>
+            <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars"></i>
+            </a>
+            <form class="d-none d-md-flex ms-4" action="crafter/products">
+                <input class="form-control border-0" type="search" name="w" value="" placeholder="Search About Product...">
+            </form>
+            <div class="navbar-nav align-items-center ms-auto">
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-bell me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Order Notification</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <a href="panel/orders/3" class="dropdown-item">
+                            <h6 class="fw-normal mb-0">Fatamah</h6>
+                            <small>2024-10-12</small>
+                        </a>
+                        <hr class="dropdown-divider">
+
+                        <hr class="dropdown-divider">
+                        <a href="panel/orders" class="dropdown-item text-center">See all orders</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa text-dark fa-user-circle fa-2x"></i>
+                        <span class="d-none d-lg-inline-flex">Carfter One</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <a href="crafter/account/update-data" class="dropdown-item">My Profile</a>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <form id="logout-form" action="crafter/logout" method="POST" style="display: none;">
+            <input type="hidden" name="_token" value="adwTozZyGtctAiEYEYlxKJAc3RVq4II0X1Zzp3Ai">            </form>
+        <!-- Navbar End -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Products List</h6>
+                    <a class="btn btn-primary" href="crafter/products/create"> Add Product</a>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTable" class="table  table-bordered">
+                        <thead>
+                        <tr class="text-dark">
+
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+
+                            <th scope="col">Plastic QTY</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                            <td><img src="up/1.jpeg" class="img-thumbnail" height="100px" width="100px"></td>
+                            <td>Vase</td>
+
+                            <td>400.00</td>
+                            <td>
+                                <a class="btn btn-primary" href="crafter/products/1/edit">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-del" data-action="crafter/products/1" ><i class="fa fa-trash"></i> Delete</a>
+
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td><img src="up/3.jpeg" class="img-thumbnail" height="100px" width="100px"></td>
+                            <td>Magnet</td>
+
+                            <td>192.00</td>
+                            <td>
+                                <a class="btn btn-primary" href="crafter/products/3/edit">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-del" data-action="crafter/products/3" ><i class="fa fa-trash"></i> Delete</a>
+
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td><img src="up/5.jpeg" class="img-thumbnail" height="100px" width="100px"></td>
+                            <td>Colourful plastic cup
+                            </td>
+
+                            <td>400.00</td>
+                            <td>
+                                <a class="btn btn-primary" href="crafter/products/5/edit">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-del" data-action="crafter/products/5" ><i class="fa fa-trash"></i> Delete</a>
+
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td><img src="up/7.jpeg" class="img-thumbnail" height="100px" width="100px"></td>
+                            <td>Lego Toy</td>
+
+                            <td>400.00</td>
+                            <td>
+                                <a class="btn btn-primary" href="crafter/products/7/edit">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-del" data-action="crafter/products/7" ><i class="fa fa-trash"></i> Delete</a>
+
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td><img src="up/9.jpeg" class="img-thumbnail" height="100px" width="100px"></td>
+                            <td>Boy Toy</td>
+
+                            <td>3.10</td>
+                            <td>
+                                <a class="btn btn-primary" href="crafter/products/9/edit">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-del" data-action="crafter/products/9" ><i class="fa fa-trash"></i> Delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="website/panel/lib/chart/chart.min.js"></script>
+<script src="website/panel/lib/easing/easing.min.js"></script>
+<script src="website/panel/lib/waypoints/waypoints.min.js"></script>
+<script src="website/panel/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="website/panel/lib/tempusdominus/js/moment.min.js"></script>
+<script src="website/panel/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="website/panel/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="website/panel/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<form action="" id="delete-form" method="POST">
+    <input type="hidden" name="_token" value="adwTozZyGtctAiEYEYlxKJAc3RVq4II0X1Zzp3Ai">        <input type="hidden" name="_method" value="DELETE">    </form>
+<script>
+    // let table = new DataTable('table');
+    $('.btn-del').on('click', function(e){
+        e.preventDefault();
+        $('#delete-form').attr('action', '');
+        let action = $(this).attr('data-action');
+        $('#delete-form').attr('action', action);
+        confirmDelete();
+    });
+    function confirmDelete() {
+        Swal.fire({
+            title: 'You are about to delete item, Are you sure?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form
+
+                $('#delete-form').submit();
+            }
+        })
+    }
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            searching: true, // Enables search functionality
+            paging: false,    // Adds pagination
+            info: false       // Shows table information
+        });
+    });
+</script>
+
+</body>
+</html>
