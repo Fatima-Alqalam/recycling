@@ -1,0 +1,56 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+.form-control-feedback{
+    color: #f01414;
+  }
+
+.main-top {
+    background: #264e29;
+    padding: 10px 0px;
+}
+.footer-copyright {
+    background: #264e29;
+    padding: 8px 1px;
+    position: relative;
+    border-top: 1px solid;
+}
+.footer-main {
+    padding: 15px 0px;
+    background: #264e29;
+}
+.footer-link-contact ul li p a {
+    color: #ffffff;
+}
+.footer-widget p {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+.footer-link ul li a {
+    color: #ffffff;
+}
+.box-img-hover img {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    height: 200px;
+}
+.products-single {
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 0px;
+    box-shadow: 0 0 9px 3px #bab5b5;
+}
+.why-text h5 {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    padding: 4px;
+    display: inline-block;
+    background: no-repeat;
+    color: #203f11;
+    font-weight: 600;
+    text-align: center;
+}
